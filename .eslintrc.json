@@ -39,6 +39,7 @@
       }
     },
     {
+      "excludedFiles": ["*/**/*"],
       "files": ["*.{js,jsx,ts,tsx}"],
       "rules": {
         "import/no-default-export": "off",

@@ -31,7 +31,7 @@
   "singleAttributePerLine": false,
   "singleQuote": true,
   "tabWidth": 2,
-  "tailwindConfig": "tailwind.config.cjs",
+  "tailwindConfig": "tailwind.config.ts",
   "trailingComma": "all",
   "useTabs": false
 }

@@ -1,7 +1,6 @@
-/**
- * @type {import('tailwindcss').Config}
- */
-const config = {
+import { Config } from "tailwindcss"
+
+const config: Config = {
   darkMode: ['class', '[data-mode="dark"]'],
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
@@ -9,7 +8,7 @@ const config = {
       colors: {
         'background': 'hsl(var(--background))',
         'foreground': 'hsl(var(--foreground))',
-        'ring-color': 'hsl(var(--ring))',
+        'ring-color': 'hsl(var(--ring-color))',
         'primary': {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -113,4 +112,4 @@ const config = {
   },
 }
 
-module.exports = config
+export default config

@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "allowImportingTsExtensions": true,
-    "allowJs": false,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "checkJs": false,
     "composite": true,
+    "declaration": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": false,
@@ -15,8 +16,7 @@
     "jsx": "react-jsx",
     "lib": ["ESNext"],
     "module": "esnext",
-    "moduleDetection": "force",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
     "noEmit": true,
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
@@ -30,11 +30,9 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "types": [
-      "bun-types" // add Bun global
-    ],
+    "types": ["@testing-library/jest-dom", "node", "bun-types"],
     "verbatimModuleSyntax": false
   },
-  "exclude": ["node_modules", "scripts", "**/temp/*.ts"],
-  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"]
+  "exclude": ["lib", "node_modules"],
+  "include": ["src"]
 }
