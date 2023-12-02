@@ -13,7 +13,9 @@
     "storybook-build": "storybook build",
     "type-check": "tsc --pretty --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@radix-ui/react-primitive": "^1.0.3"
+  },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
@@ -21,14 +23,13 @@
     "@storybook/addon-interactions": "^7.6.2",
     "@storybook/addon-links": "^7.6.2",
     "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addons": "^7.6.2",
     "@storybook/blocks": "^7.6.2",
     "@storybook/react": "^7.6.2",
     "@storybook/react-webpack5": "^7.6.2",
     "@storybook/test": "^7.6.2",
     "@trivago/prettier-plugin-sort-imports": "^4.2.1",
-    "@types/node": "^20",
+    "@types/node": "^20.10.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
