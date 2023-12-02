@@ -6,6 +6,7 @@
     "checkJs": false,
     "composite": false,
     "declaration": true,
+    "downlevelIteration": true,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": true,
     "experimentalDecorators": false,
@@ -23,20 +24,19 @@
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
+    "outDir": "dist",
     "paths": {
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
+    "strictNullChecks": true,
     "target": "es6",
+    "types": ["@testing-library/jest-dom"],
     "verbatimModuleSyntax": false
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "global.d.ts"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "nodenext"
-    },
-    "esm": true
-  }
+  "exclude": ["coverage", "config", "dist", "node_modules/**"],
+  "include": ["src", "*.tsx", "*.ts", "global.d.ts"]
 }
