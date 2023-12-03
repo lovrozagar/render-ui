@@ -7,49 +7,114 @@
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
+    --mode: 0 0% 100%;
+    --mode-foreground: 240 10% 3.9%;
+
+    --mode-contrast: 240 10% 3.9%;
+    --mode-contrast-foreground: 0 0% 100%;
+
+    --mode-accent: 240 5% 92%;
+    --mode-accent-foreground: 240 10% 3.9%;
+
+    --mode-contrast-accent: 240 4% 16%;
+    --mode-contrast-accent-foreground: 0 0% 100%;
+
+    --neutral: 240 3% 75%;
+    --neutral-foreground: 240 10% 3.9%;
+
     --primary: 212 100% 47%;
     --primary-foreground: 0 0% 98%;
+
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 98%;
 
     --destructive: 339 90% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring-color: 212 100% 47%;
-    --ring-width: 2px;
-    --ring-offset: 2px;
+    --success: 142 71% 45%;
+    --success-foreground: 240 10% 3.9%;
 
-    --active-pressed-scale: 0.95;
+    --warning: 37 91% 55%;
+    --warning-foreground: 240 10% 3.9%;
+
+    --info: 48 96% 53%;
+    --info-foreground: 240 10% 3.9%;
+
+    --help: 271 91% 65%;
+    --help-foreground: 0 0% 98%;
+
+    --brand: 292 91% 73%;
+    --brand-foreground: 0 0% 98%;
+
+    --ring-color: 213 94% 68%;
+    --ring-width: 3px;
+    --ring-offset: 0px;
+
+    --border-width: 2px;
+
+    --active-pressed-scale: 0.97;
 
     --transition-duration-fast: 150ms;
     --transition-duration-medium: 250ms;
     --transition-duration-slow: 500ms;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 
   .dark {
     --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --foreground: 0 0% 100%;
+
+    --mode: 240 10% 3.9%;
+    --mode-foreground: 0 0% 100%;
+
+    --mode-contrast: 0 0% 100%;
+    --mode-contrast-foreground: 240 10% 3.9%;
+
+    --mode-accent: 240 4% 16%;
+    --mode-accent-foreground: 0 0% 100%;
+
+    --mode-contrast-accent: 240 5% 92%;
+    --mode-contrast-accent-foreground: 240 10% 3.9%;
+
+    --neutral: 240 5% 34%;
+    --neutral-foreground: 0 0% 100%;
 
     --primary: 212 100% 47%;
     --primary-foreground: 0 0% 98%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 98%;
 
     --destructive: 339 90% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring-color: 212 100% 47%;
-    --ring-width: 2px;
+    --success: 142 71% 45%;
+    --success-foreground: 240 10% 3.9%;
+
+    --warning: 37 91% 55%;
+    --warning-foreground: 240 10% 3.9%;
+
+    --info: 48 96% 53%;
+    --info-foreground: 240 10% 3.9%;
+
+    --help: 271 91% 65%;
+    --help-foreground: 0 0% 98%;
+
+    --brand: 292 91% 73%;
+    --brand-foreground: 0 0% 98%;
+
+    --ring-color: 213 94% 68%;
+    --ring-width: 3px;
     --ring-offset: 2px;
 
-    --active-pressed-scale: 0.95;
+    --active-pressed-scale: 0.97;
 
     --transition-duration-fast: 150ms;
     --transition-duration-medium: 250ms;
     --transition-duration-slow: 500ms;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 }
 
