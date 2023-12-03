@@ -56,6 +56,7 @@ const useAriaHandlers = <T extends HTMLElement>(
 
   // hooks propeties are asserted due to the decision to keep exactOptionalPropertyTypes: true - TS rule
 
+  const [isKeyboardPressed, setIsKeyboardPressed] = React.useState(false)
   const { pressProps, isPressed } = usePress({
     ref: ref,
     isPressed: isPressedControlled,
@@ -64,10 +65,20 @@ const useAriaHandlers = <T extends HTMLElement>(
     shouldCancelOnPointerExit,
     isDisabled: isPressDisabled,
     onPress,
-    onPressStart,
-    onPressEnd,
     onPressChange,
     onPressUp,
+    onPressStart: (event) => {
+      if (event.pointerType === 'keyboard') {
+        setIsKeyboardPressed(true)
+      }
+      if (onPressStart) onPressStart(event)
+    },
+    onPressEnd: (event) => {
+      if (event.pointerType === 'keyboard') {
+        setIsKeyboardPressed(false)
+      }
+      if (onPressEnd) onPressEnd(event)
+    },
   } as PressHookProps)
 
   const { longPressProps } = useLongPress({
@@ -117,14 +128,15 @@ const useAriaHandlers = <T extends HTMLElement>(
   const ariaHandlerDatasetProps = React.useMemo(
     () => ({
       'data-pressed': isPressed,
+      'data-keyboard-pressed': isKeyboardPressed,
       'data-hover': isHovered,
       'data-focus': isFocused,
       'data-focus-visible': isFocusVisible,
     }),
-    [isPressed, isHovered, isFocused, isFocusVisible],
+    [isPressed, isKeyboardPressed, isHovered, isFocused, isFocusVisible],
   )
 
-  const ariaProps = { ...ariaHandlerProps, ariaHandlerAriaProps, ariaHandlerDatasetProps }
+  const ariaProps = { ...ariaHandlerProps, ...ariaHandlerAriaProps, ...ariaHandlerDatasetProps }
 
   return ariaProps
 }
