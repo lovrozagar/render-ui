@@ -11,10 +11,13 @@ import { LazyMotionDomAnimationProvider } from '@/packages/utility/lazy-motion-d
 const RippleRipples = React.forwardRef<RippleRipplesRef, RippleRipplesProps>((props, ref) => {
   const { subLayerProps, ...otherProps } = props
 
-  const { ripples, addRipple, getRippleRipplesProps } = useRipple(otherProps, ref)
+  const { ripples, internalSubLayerRef, addRippleOnClick, getRippleRipplesProps } = useRipple(
+    otherProps,
+    ref,
+  )
 
   return (
-    <SubLayer ref={ref} {...subLayerProps} onClick={addRipple}>
+    <SubLayer ref={internalSubLayerRef} {...subLayerProps} onClick={addRippleOnClick}>
       {ripples.map((ripple) => {
         return (
           <LazyMotionDomAnimationProvider key={ripple.key}>

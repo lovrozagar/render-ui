@@ -35,12 +35,14 @@ const useRipple = (
     ...otherProps
   } = props
 
+  const internalSubLayerRef = React.useRef<HTMLSpanElement | null>(null)
+  const hasInitialized = React.useRef(false)
   const [ripples, setRipples] = React.useState<RippleRipple[]>([])
 
-  const addRipple = React.useCallback((event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+  const addRippleOnClick = React.useCallback((event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const trigger = event.currentTarget
-    const size = Math.max(trigger.clientWidth, trigger.clientHeight)
     const rect = trigger.getBoundingClientRect()
+    const size = Math.max(trigger.clientWidth, trigger.clientHeight)
     // @TODO, make a id util compatible with server components
     const rippleKey = crypto.randomUUID()
 
@@ -57,6 +59,27 @@ const useRipple = (
     return rippleKey
   }, [])
 
+  const addRippleOnKeyboardPress = React.useCallback(
+    (clientHeight: number, clientWidth: number) => {
+      const size = Math.max(clientWidth, clientHeight)
+
+      const rippleKey = crypto.randomUUID()
+
+      setRipples((previousRipples) => [
+        ...previousRipples,
+        {
+          key: rippleKey,
+          size,
+          x: 0,
+          y: -(clientHeight / 2),
+        },
+      ])
+
+      return rippleKey
+    },
+    [],
+  )
+
   const clearRipple = React.useCallback((key: React.Key) => {
     setRipples((previousState) => previousState.filter((ripple) => ripple.key !== key))
   }, [])
@@ -68,6 +91,39 @@ const useRipple = (
     },
     [clearRipple, onAnimationCompleteProp],
   )
+
+  React.useEffect(() => {
+    const element = internalSubLayerRef.current
+    if (!element?.parentElement) return
+
+    const { parentElement } = element
+
+    const observer = new MutationObserver((mutations) => {
+      if (!hasInitialized.current) {
+        hasInitialized.current = true
+        return
+      }
+
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-keyboard-pressed') {
+          const newPressedState = parentElement.dataset.pressed
+          if (newPressedState === 'false' || newPressedState === null) {
+            const { clientHeight, clientWidth } = element
+            addRippleOnKeyboardPress(clientHeight, clientWidth)
+          }
+        }
+      })
+    })
+
+    observer.observe(element.parentElement, {
+      attributes: true,
+      attributeFilter: ['data-keyboard-pressed'],
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [internalSubLayerRef, addRippleOnKeyboardPress])
 
   const getRippleRipplesProps = React.useCallback(
     (ripple: RippleRipple) => {
@@ -99,7 +155,7 @@ const useRipple = (
 
       const className = cn('bg-current', classNameProp)
 
-      const props: HTMLMotionProps<'span'> & { ref: React.ForwardedRef<HTMLSpanElement> } = {
+      const props: HTMLMotionProps<'span'> & { ref: React.Ref<HTMLSpanElement> } = {
         ref,
         initial,
         animate,
@@ -129,7 +185,13 @@ const useRipple = (
     ],
   )
 
-  return { ripples, addRipple, clearRipple, getRippleRipplesProps }
+  return {
+    ripples,
+    internalSubLayerRef,
+    addRippleOnClick,
+    addRippleOnKeyboardPress,
+    getRippleRipplesProps,
+  }
 }
 
 export { useRipple }
