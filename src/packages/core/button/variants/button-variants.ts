@@ -1,5 +1,7 @@
 import { cva } from 'class-variance-authority'
 
+import { sharedColorVariants } from '@/variants/shared/colors'
+
 const buttonVariants = cva([], {
   variants: {
     variant: {
@@ -15,21 +17,7 @@ const buttonVariants = cva([], {
       light: [],
       twilight: [],
     },
-    color: {
-      'mode': [],
-      'mode-contrast': [],
-      'mode-accent': [],
-      'mode-contrast-accent': [],
-      'neutral': [],
-      'primary': [],
-      'secondary': [],
-      'destructive': [],
-      'success': [],
-      'warning': [],
-      'info': [],
-      'help': [],
-      'brand': [],
-    },
+    color: sharedColorVariants,
     shadow: {
       none: [],
       sm: [],
