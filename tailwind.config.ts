@@ -1,7 +1,7 @@
 import { Config } from 'tailwindcss'
 
 const config: Config = {
-  darkMode: ['class', '[data-mode="dark"]'],
+  darkMode: 'class',
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -9,6 +9,26 @@ const config: Config = {
         'background': 'hsl(var(--background))',
         'foreground': 'hsl(var(--foreground))',
         'ring-color': 'hsl(var(--ring-color))',
+        'mode': {
+          DEFAULT: 'hsl(var(--mode))',
+          foreground: 'hsl(var(--mode-foreground))',
+        },
+        'mode-contrast': {
+          DEFAULT: 'hsl(var(--mode-contrast))',
+          foreground: 'hsl(var(--mode-contrast-foreground))',
+        },
+        'mode-accent': {
+          DEFAULT: 'hsl(var(--mode-accent))',
+          foreground: 'hsl(var(--mode-accent-foreground))',
+        },
+        'mode-contrast-accent': {
+          DEFAULT: 'hsl(var(--mode-contrast-accent))',
+          foreground: 'hsl(var(--mode-contrast-accent-foreground))',
+        },
+        'neutral': {
+          DEFAULT: 'hsl(var(--neutral))',
+          foreground: 'hsl(var(--neutral-foreground))',
+        },
         'primary': {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -20,6 +40,26 @@ const config: Config = {
         'destructive': {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
+        },
+        'success': {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))',
+        },
+        'warning': {
+          DEFAULT: 'hsl(var(--warning))',
+          foreground: 'hsl(var(--warning-foreground))',
+        },
+        'info': {
+          DEFAULT: 'hsl(var(--info))',
+          foreground: 'hsl(var(--info-foreground))',
+        },
+        'help': {
+          DEFAULT: 'hsl(var(--help))',
+          foreground: 'hsl(var(--help-foreground))',
+        },
+        'brand': {
+          DEFAULT: 'hsl(var(--brand))',
+          foreground: 'hsl(var(--brand-foreground))',
         },
         'muted': {
           DEFAULT: 'hsl(var(--muted))',
@@ -38,6 +78,9 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+      },
+      borderWidth: {
+        DEFAULT: 'var(--border-width)',
       },
       borderRadius: {
         'largest': 'calc(var(--radius) * 1.8)',
@@ -68,7 +111,7 @@ const config: Config = {
         offset: 'var(--ring-offset)',
       },
       scale: {
-        'active-button-scale': 'var(--active-button-scale)',
+        'active-pressed-scale': 'var(--active-pressed-scale)',
       },
       transitionProperty: {
         sizing: 'height, width, transform',

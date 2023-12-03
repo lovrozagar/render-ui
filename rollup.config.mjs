@@ -14,7 +14,7 @@ import svgr from '@svgr/rollup'
 
 const packageJson = JSON.parse(readFileSync('./package.json'))
 
-const config =  defineConfig(
+const config = defineConfig(
   {
     input: './src/index.ts',
     output: [
@@ -62,7 +62,7 @@ const config =  defineConfig(
           '**/*.story.js+(|x)',
           '**/*.stories.ts+(|x)',
           '**/*.stories.js+(|x)',
-          'setupTests.ts',
+          'setup-tests.ts',
           'vitest.config.ts',
         ],
       }),

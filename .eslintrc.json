@@ -119,6 +119,7 @@
     "lodash/prefer-constant": "off",
     "lodash/prefer-lodash-method": "off",
     "lodash/prefer-lodash-typecheck": "off",
+    "lodash/prefer-noop": "off",
     "new-parens": "error",
     "no-array-constructor": "error",
     "no-caller": "error",
