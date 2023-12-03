@@ -71,7 +71,7 @@ const useRipple = (
           key: rippleKey,
           size,
           x: 0,
-          y: -(clientHeight / 2),
+          y: -clientWidth / 2 + clientHeight / 2,
         },
       ])
 

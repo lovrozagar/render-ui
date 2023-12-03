@@ -18,15 +18,13 @@ const RippleRipples = React.forwardRef<RippleRipplesRef, RippleRipplesProps>((pr
 
   return (
     <SubLayer ref={internalSubLayerRef} {...subLayerProps} onClick={addRippleOnClick}>
-      {ripples.map((ripple) => {
-        return (
-          <LazyMotionDomAnimationProvider key={ripple.key}>
-            <AnimatePresence mode='popLayout'>
-              <m.span {...getRippleRipplesProps(ripple)} />
-            </AnimatePresence>
-          </LazyMotionDomAnimationProvider>
-        )
-      })}
+      {ripples.map((ripple) => (
+        <LazyMotionDomAnimationProvider key={ripple.key}>
+          <AnimatePresence mode='popLayout'>
+            <m.span {...getRippleRipplesProps(ripple)} />
+          </AnimatePresence>
+        </LazyMotionDomAnimationProvider>
+      ))}
     </SubLayer>
   )
 })
