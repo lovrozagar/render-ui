@@ -1353,7 +1353,7 @@ const buttonVariants = cva([], {
     },
   ],
   defaultVariants: {
-    color: 'mode',
+    color: 'primary',
     variant: 'solid',
     shape: 'inline-flex',
     size: 'base',
