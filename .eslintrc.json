@@ -19,16 +19,15 @@
   },
   "plugins": ["no-relative-import-paths"],
   "rules": {
+    "@arthurgeron/react-usememo/require-usememo": "off",
+    "complexity": ["error", 15],
     "curly": "off",
     "ext/lines-between-object-properties": "off",
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
-    "functional/immutable-data": [
-      "error",
-      {
-        "ignoreAccessorPattern": ["*.displayName", "*.current"],
-        "ignoreImmediateMutation": true
-      }
-    ],
+    "functional/functional-parameters": "off",
+    "functional/immutable-data": "off",
+    "functional/no-let": "off",
+    "functional/no-loop-statements": "off",
     "id-length": ["error", { "exceptions": ["x", "y", "z"] }],
     "import/extensions": "off",
     "import/named": "off",
@@ -40,14 +39,7 @@
     "max-lines": "off",
     "max-statements": ["error", 20],
     "no-console": ["warn"],
-    "no-magic-numbers": [
-      "error",
-      {
-        "ignore": [0, 1, -1],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true
-      }
-    ],
+    "no-magic-numbers": ["error"],
     "no-relative-import-paths/no-relative-import-paths": [
       "warn",
       { "allowSameFolder": false, "prefix": "@", "rootDir": "src" }
@@ -60,14 +52,18 @@
       }
     ],
     "no-undef": "off",
+    "no-undef-init": "off",
+    "perfectionist/sort-interfaces": "off",
     "perfectionist/sort-jsx-props": "off",
     "perfectionist/sort-object-types": "off",
     "perfectionist/sort-objects": "off",
+    "prefer-destructuring": ["error", { "array": false, "object": true }],
     "putout/putout": "off",
     "quotes": ["error", "single", { "avoidEscape": true }],
     "react/function-component-definition": "off",
     "react/jsx-no-leaked-render": ["error", { "validStrategies": ["ternary", "coerce"] }],
     "react/jsx-props-no-spreading": "off",
+    "sonarjs/cognitive-complexity": ["error", 20],
     "unicorn/no-null": "off",
     "unicorn/prevent-abbreviations": [
       "error",
