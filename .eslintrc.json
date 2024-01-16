@@ -13,13 +13,22 @@
     "plugin:react-server-components/recommended",
     "plugin:tailwindcss/recommended"
   ],
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "max-lines": ["error", { "max": 300, "skipBlankLines": false, "skipComments": false }]
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": ["tsconfig.json"]
   },
-  "plugins": ["no-relative-import-paths"],
+  "plugins": ["no-relative-import-paths", "@typescript-eslint"],
   "rules": {
     "@arthurgeron/react-usememo/require-usememo": "off",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "complexity": ["error", 15],
     "curly": "off",
     "ext/lines-between-object-properties": "off",
@@ -28,8 +37,9 @@
     "functional/immutable-data": "off",
     "functional/no-let": "off",
     "functional/no-loop-statements": "off",
-    "id-length": ["error", { "exceptions": ["x", "y", "z"] }],
+    "id-length": ["error", { "exceptions": ["x", "y", "z", "p", "m", "_"] }],
     "import/extensions": "off",
+    "import/max-dependencies": "off",
     "import/named": "off",
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
@@ -38,6 +48,7 @@
     "max-len": "off",
     "max-lines": "off",
     "max-statements": ["error", 20],
+    "multiline-comment-style": "off",
     "no-console": ["warn"],
     "no-magic-numbers": ["error"],
     "no-relative-import-paths/no-relative-import-paths": [
@@ -51,6 +62,7 @@
         "selector": "ExportNamedDeclaration[declaration]"
       }
     ],
+    "no-shadow": "off",
     "no-undef": "off",
     "no-undef-init": "off",
     "perfectionist/sort-interfaces": "off",
@@ -60,10 +72,24 @@
     "prefer-destructuring": ["error", { "array": false, "object": true }],
     "putout/putout": "off",
     "quotes": ["error", "single", { "avoidEscape": true }],
+    "react-perf/jsx-no-new-array-as-prop": "off",
+    "react-perf/jsx-no-new-function-as-prop": "off",
+    "react-perf/jsx-no-new-object-as-prop": "off",
+    "react/destructuring-assignment": "off",
+    "react/forbid-component-props": "off",
     "react/function-component-definition": "off",
+    "react/jsx-no-bind": "off",
     "react/jsx-no-leaked-render": ["error", { "validStrategies": ["ternary", "coerce"] }],
     "react/jsx-props-no-spreading": "off",
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": false,
+        "customValidators": []
+      }
+    ],
     "sonarjs/cognitive-complexity": ["error", 20],
+    "sonarjs/elseif-without-else": "off",
     "unicorn/no-null": "off",
     "unicorn/prevent-abbreviations": [
       "error",
