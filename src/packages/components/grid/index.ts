@@ -1,0 +1,6 @@
+export { Grid } from '@/packages/components/grid/components/grid'
+export { GridChild } from '@/packages/components/grid/components/grid-child'
+export type { GridProps, GridRef } from '@/packages/components/grid/types/grid'
+export type { GridChildProps, GridChildRef } from '@/packages/components/grid/types/grid-child'
+export { gridChildVariants } from '@/packages/components/grid/variants/grid-child-variants'
+export { gridVariants } from '@/packages/components/grid/variants/grid-variants'
